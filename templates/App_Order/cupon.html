@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title_block %}
+Login
+{% endblock %}
+{% block css_block %}
+    <style>
+        .signup_form {
+            width: 550px; 
+            border: 1px solid #ccc;
+             padding: 20px;
+        }
+        .login{
+            width: 550px; 
+            border: 1px solid #ccc;
+             padding: 20px;
+        }
+    </style>
+{% endblock %}
+{% block body_block %}
+<center>
+    <!-- style="width: 550px; border: 1px solid #ccc; padding: 20px;" -->
+    <div class="signup_form" >
+        <h3>Cupon </h3>
+        <form action="" method="GET" enctype="multipart/form-data">
+            <input type="text" name="cupon" width="100%"  placeholder="Enter Your Cupon Code">
+            <br> <br>
+            {% csrf_token %}
+            <button type="submit"  class="btn btn-primary btn-sm" >Check Cupon</button>
+        </form>
+    </div>
+    <br>
+
+</center>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title_block %}
+Profile
+{% endblock %}
+{% block css_block %}
+{% endblock %}
+{% block body_block %}
+<div style="background-color: grey;color: white; padding-left: 20px;padding-top: 20px;padding-bottom: 30px;text-align: center;" > Profile Description</div>
+<div style="display: flex;align-items: center; justify-content: center;border-bottom: 1px solid gray;">
+    <div style="width: 10%;text-align: center;">
+        {% if user_other.user_profile.profile_pic %}
+        <a  href="#"  > 
+            <img src="/media/{{user_other.user_profile.profile_pic}}" alt="" width="80px" height="80px" class="rounded-circle">
+            </a>
+        {% else %}
+        <a  href="#"  > 
+            <img src="/media/profile_pics/avatar-male.jpg" alt="" width="80px" height="80px" class="rounded-circle">
+        </a>
+        {% endif %} 
+        
+        
+         
+    </div>
+    <div style="width: 90%; padding-top: 40px;padding-bottom: 30px;background-color: lightgray; padding-left: 20px;">
+       <div> <span style="font-size: 16px; font-weight: bold; padding-bottom: 5px; color: honeydew;">Username :</span> <span> {{user_other.username}} </span> </div>
+       <div> <span style="font-size: 16px; font-weight: bold; padding-bottom: 5px; color: honeydew;">Email :</span> <span> {{user_other.email}} </span> </div>
+       {% if user_other.is_teacher %}
+       
+        <div> <span style="font-size: 16px; font-weight: bold; padding-bottom: 5px; color: honeydew;">Course :</span> <span> {{user_other.teacher.course}} </span> </div>
+        <div> <span style="font-size: 16px; font-weight: bold; padding-bottom: 5px; color: honeydew;">Phone :</span> <span> {{user_other.teacher.phone}} </span> </div>
+        <div>
+            <span style="font-size: 16px; font-weight: bold; padding-bottom: 5px; color: honeydew;">User type :</span> <span><i class="fa fa-check-square-o" style="color: green;"  aria-hidden="true"></i> is_teacher</span>
+        </div>
+        {% else %}
+        <div>
+            <span style="font-size: 16px; font-weight: bold; padding-bottom: 5px; color: honeydew;">User type :</span> <span><i class="fa fa-check-square-o" style="color: green;"  aria-hidden="true"></i> is_student</span>
+        </div>
+       {% endif %}
+       <!-- <button class="btn btn-warning btn-sm" >Edit Profile</button> -->
+    </div>
+    
+</div>
+
+
+{% endblock %}
